@@ -2,11 +2,14 @@ import { execSync } from "child_process";
 import * as net from "net";
 
 const {
-  SRP_TIMEOUT: timeoutLength,
+  SRP_TIMEOUT: timeoutLengthString,
   SRP_PROXY_HOSTNAME: proxyHostname = "localhost",
-  SRP_PROXY_PORT: proxyPort,
-  SRP_PORT: port
+  SRP_PROXY_PORT: proxyPortString,
+  SRP_PORT: portString
 } = process.env;
+const timeoutLength = Number(timeoutLengthString);
+const proxyPort = Number(proxyPortString);
+const port = Number(portString);
 
 const server = net.createServer();
 
