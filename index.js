@@ -17,7 +17,7 @@ const stopServer = () => execSync("poweroff");
 
 const buildConnectionHandler = () => {
   let connections = 0;
-  let closeTimeout = null;
+  let closeTimeout = setTimeout(stopServer, timeoutLength);
 
   const buildCloseEventHandler = () => {
     let closed = false;
